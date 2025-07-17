@@ -11,6 +11,12 @@ st.markdown("""
 Let’s design a custom GPT together! Whether it’s for tasks, coaching, or creative work, we’ll walk through the key decisions step-by-step.
 """)
 
+# Access code gate
+access_code = st.sidebar.text_input("Access code", type="password")
+if access_code != st.secrets["ACCESS_CODE"]:
+    st.warning("Please enter a valid access code to use this tool.")
+    st.stop()
+
 # Identity collection
 with st.sidebar:
     st.header("User Info")
